@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: whatsapp-bot
+    env: node
+    plan: free
+    buildCommand: npm install --legacy-peer-deps
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BOT_NAME
+        value: WhatsApp Bot
+      - key: BOT_PREFIX
+        value: .
+      - key: AI_ENABLED
+        value: true
+      - key: WEB_INTERFACE
+        value: true
+      - key: LOG_LEVEL
+        value: info
+    autoDeploy: true 
